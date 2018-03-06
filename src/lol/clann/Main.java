@@ -11,6 +11,7 @@ import lol.clann.bean.Person;
 import lol.clann.bean.Woman;
 import lol.clann.listener.MyListener;
 import sdk.CoolQAPI;
+import sdk.SDK;
 import sdk.SDKInit;
 import sdk.coolq.api.CoolQAPIFailException;
 import sdk.event.CoolQEventManager;
@@ -21,14 +22,17 @@ import sdk.util.bean.BeanUtils;
  * @author zyp
  */
 public class Main {
+
     /**
      * 项目入口
+     *
      * @param args
-     * @throws Exception 
+     *
+     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        //传入null即可
-        SDKInit.init(null);
+        //初始化SDK
+        SDK.init();
         //注册类
         registerBeanClass();
         //BeanUtils工具类演示
