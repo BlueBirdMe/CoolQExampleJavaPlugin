@@ -15,7 +15,7 @@ import sdk.util.bean.BeanUtils;
  *
  * @author zyp
  */
-public class MyListener implements CoolQListener{
+public class MyListener implements CoolQListener {
 
     @CoolQEventHandler
     public void onEvent(DiscussMessageEvent e) {
@@ -50,6 +50,19 @@ public class MyListener implements CoolQListener{
         System.out.println(e.getEventName());
         //回复相同消息
         e.replyMessage(e.getHandle().message);
+    }
+
+    /**
+     * 根据http-api描述,这个应该是登录QQ被邀请入群时触发才对,但我测试时并没有触发这个事件
+     * 望大牛解答...
+     *
+     * @param e
+     */
+    @CoolQEventHandler
+    public void onEvent(NewGroupInvitingEvent e) {
+        System.out.println(e.getEventName());
+        //拒绝
+        e.refuse("拒绝");
     }
 
     @CoolQEventHandler
